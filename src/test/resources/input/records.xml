@@ -1,5 +1,5 @@
 <records>
-    <record reference="141688">
+    <record reference="1">
         <accountNumber>NL90ABNA0585647886</accountNumber>
         <description>Flowers for Jan Theuß</description>
         <startBalance>1</startBalance>
@@ -7,7 +7,7 @@
         <endBalance>3</endBalance>
     </record>
 
-    <record reference="141688">
+    <record reference="1">
         <accountNumber>NL90ABNA0585647886</accountNumber>
         <description>Flowers for Jan Theuß</description>
         <startBalance>1</startBalance>
@@ -15,7 +15,7 @@
         <endBalance>2</endBalance>
     </record>
 
-    <record reference="141648">
+    <record reference="2">
         <accountNumber>NL90ABNA0585647886</accountNumber>
         <description>Flowers for Jan Theuß</description>
         <startBalance>1</startBalance>
