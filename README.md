@@ -14,5 +14,3 @@ If you run intellij, it's a matter of opening the Gradle toolset on the right si
 
 ### Option 2 (Manual):
 If you are not using a tool like Intellij, navigate to project root using your favorite terminal application and run ./gradlew bootRun. Ensure you are running JDK21.
-
-If neither of these striek your fancy for testing
