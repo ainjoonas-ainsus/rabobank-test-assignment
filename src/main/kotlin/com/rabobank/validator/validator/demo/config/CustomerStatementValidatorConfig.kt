@@ -18,18 +18,11 @@ import org.springframework.transaction.PlatformTransactionManager
 
 @Configuration
 class CustomerStatementValidatorConfig {
-
-    @Autowired
-    private lateinit var customerStatementReaderFactory: CustomerStatementReaderFactory
-
-    @Bean
-    fun batchSetupListener(): BatchSetupListener {
-        return BatchSetupListener()
-    }
-
     @Bean
     fun validateCustomerStatementsJob(jobRepository: JobRepository,
-                                      transactionManager: PlatformTransactionManager): Job {
+                                      transactionManager: PlatformTransactionManager,
+                                      customerStatementReaderFactory: CustomerStatementReaderFactory,
+                                      batchSetupListener: BatchSetupListener): Job {
 
         fun validationStepCsv(jobRepository: JobRepository, transactionManager: PlatformTransactionManager): Step {
             return StepBuilder("validationStepCsv", jobRepository)
@@ -52,7 +45,7 @@ class CustomerStatementValidatorConfig {
         return JobBuilder("validateFileJob", jobRepository)
                 .start(validationStepCsv(jobRepository, transactionManager))
                 .next(validationStepXml(jobRepository, transactionManager))
-                .listener(batchSetupListener())
+                .listener(batchSetupListener)
                 .build()
     }
 }

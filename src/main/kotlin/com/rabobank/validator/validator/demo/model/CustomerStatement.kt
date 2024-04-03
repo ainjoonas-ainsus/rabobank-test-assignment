@@ -23,4 +23,6 @@ class CustomerStatement {
     override fun toString(): String {
         return "CustomerStatement(reference=$reference, accountNumber='$accountNumber', description='$description', startBalance=$startBalance, mutation=$mutation, endBalance=$endBalance)"
     }
+
+    fun isValid() = !(startBalance == null || reference == null || mutation == null || endBalance == null)
 }

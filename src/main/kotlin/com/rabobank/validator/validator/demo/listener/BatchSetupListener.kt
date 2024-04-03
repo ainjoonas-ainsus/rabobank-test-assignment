@@ -8,10 +8,9 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @Component
-class BatchSetupListener : JobExecutionListener {
+class BatchSetupListener(@Value("\${output-name}")
+                         private val outputName: String) : JobExecutionListener {
 
-    @Value("\${output-name}")
-    private lateinit var outputName: String
     override fun beforeJob(jobExecution: JobExecution) {
         val formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm")
         val uniqueFileName = "${outputName}-${LocalDateTime.now().format(formatter)}.txt"

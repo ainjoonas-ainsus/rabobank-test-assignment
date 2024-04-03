@@ -15,10 +15,9 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller
 import org.springframework.stereotype.Component
 
 @Component
-class CustomerStatementReaderFactory(private val resourceLoader: ResourceLoader) {
-
-    @Value("\${input-folder}")
-    private lateinit var inputFolder: String
+class CustomerStatementReaderFactory(@Value("\${input-folder}")
+                                     private val inputFolder: String,
+                                     private val resourceLoader: ResourceLoader) {
 
     fun buildReaderXml(): StaxEventItemReader<CustomerStatement> {
         val marshaller = Jaxb2Marshaller()

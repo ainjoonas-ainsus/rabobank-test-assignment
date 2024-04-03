@@ -15,6 +15,12 @@ class CustomerStatementProcessor : ItemProcessor<CustomerStatement, ValidationRe
     override fun process(item: CustomerStatement): ValidationResult {
         val errors = mutableListOf<String>()
 
+        if (!item.isValid()) {
+            errors.add("Unable to run validations: ${item.reference}, missing required fields")
+
+            return ValidationResult(item, errors)
+        }
+
         val endBalance = item.startBalance!! + item.mutation!!
         if (endBalance != item.endBalance!!) {
             errors.add("Invalid end balance for reference ${item.reference}, found end balance to be $endBalance")

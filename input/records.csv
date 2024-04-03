@@ -10,3 +10,4 @@ Reference,Account Number,Description,Start Balance,Mutation,End Balance
 128470,NL91RABO0315273637,Tickets for Erik Dekker,53.31,-15.85,37.46
 141007,NL32RABO0195610843,Tickets for Richard de Vries,66.35,+44.27,110.62
 141008,NL32RABO0195610843,Test,1.0,+1.0,3.0
+141008,NL32RABO0195610843,Test,1.0,,3.0
